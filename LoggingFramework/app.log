@@ -1,0 +1,16 @@
+[1751810754587] [INFO] [Thread-2]: Info message from Thread-2: 0
+[1751810754587] [INFO] [Thread-1]: Info message from Thread-1: 0
+[1751810754587] [INFO] [Thread-3]: Info message from Thread-3: 0
+[1751810756592] [DEBUG] [Thread-1]: Debug message from Thread-1: 0
+[1751810755591] [DEBUG] [Thread-2]: Debug message from Thread-2: 0
+[1751810758594] [INFO] [Thread-1]: Info message from Thread-1: 1
+[1751810757593] [DEBUG] [Thread-3]: Debug message from Thread-3: 0
+[1751810760595] [DEBUG] [Thread-1]: Debug message from Thread-1: 1
+[1751810759594] [INFO] [Thread-2]: Info message from Thread-2: 1
+[1751810761597] [INFO] [Thread-3]: Info message from Thread-3: 1
+[1751810763599] [DEBUG] [Thread-2]: Debug message from Thread-2: 1
+[1751810764600] [DEBUG] [Thread-3]: Debug message from Thread-3: 1
+vvke
+vvvrv
+
+cscsc

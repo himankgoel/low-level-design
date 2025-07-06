@@ -31,9 +31,9 @@ public class ParkingSpot {
         if(!canFitVehicle(vehicle)) {
             throw new InvalidParkingSpotException("Cannot fit vehicle here.");
         }
-        if(lock.tryLock()) {
+        if(isAvailable && lock.tryLock()) {
             try {
-                lock.lock();
+//                lock.lock(); // This is redundant as we've locked once using tryLock.
                 if (!isAvailable) {
                     throw new ParkingSpotAlreadyOccupiedException("Spot already occupied.");
                 }

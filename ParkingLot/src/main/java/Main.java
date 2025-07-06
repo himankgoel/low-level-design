@@ -5,18 +5,21 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // Create parking spots
-        List<ParkingSpot> spots = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            spots.add(new ParkingSpot("C-" + i, VehicleType.Compact));
-        }
-        // Create a parking level with these spots
+        // Create multiple levels, each with 5 compact spots
+        int numLevels = 2;
+        int spotsPerLevel = 5;
         List<ParkingLevel> levels = new ArrayList<>();
-        levels.add(new ParkingLevel(spots));
-        // Initialize the parking lot with the level(s)
+        for (int l = 0; l < numLevels; l++) {
+            List<ParkingSpot> spots = new ArrayList<>();
+            for (int i = 0; i < spotsPerLevel; i++) {
+                spots.add(new ParkingSpot("L" + l + "-C-" + i, VehicleType.Compact));
+            }
+            levels.add(new ParkingLevel(spots));
+        }
+        // Initialize the parking lot with the levels
         ParkingLot lot = new ParkingLot(levels);
         System.out.println(lot.getAvailableSpots());
-        int numThreads = 10;
+        int numThreads = 100;
         Thread[] threads = new Thread[numThreads];
 
         for (int i = 0; i < numThreads; i++) {
@@ -30,6 +33,7 @@ public class Main {
                     System.out.println(Thread.currentThread().getName() + " parked: " + vehicle.getRegistrationNumber());
                     // Simulate some parking duration
                     Thread.sleep((long) (Math.random() * 1000));
+                    System.out.println(Thread.currentThread().getName() + lot.getAvailableSpots());
                     // Try to unpark
                     System.out.println("Pay up:" + lot.unparkVehicleAndCalculateFees(vehicle) + " Duration:" + (ticket.timeClosed - ticket.timeCreated));
                     System.out.println(Thread.currentThread().getName() + " unparked: " + vehicle.getRegistrationNumber());
